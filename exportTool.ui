@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1062</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="dbSettingsFrame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>451</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="testConnectionPushButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>91</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(85, 170, 255);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Testaa yhteys</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>401</width>
+       <height>136</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="ServerLabel">
+        <property name="text">
+         <string>Palvelin</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="serverLineEdit">
+        <property name="placeholderText">
+         <string>Palvelimen nimi tai IP-osoite</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="portLabel">
+        <property name="text">
+         <string>Portti</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="portLineEdit">
+        <property name="placeholderText">
+         <string>TCP-portin numero, oletus 5432</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="databaseLabel">
+        <property name="text">
+         <string>Tietokanta</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="databaseLineEdit">
+        <property name="placeholderText">
+         <string>Tietokannan nimi, hallintatietokanta postgres</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="userNameLabel">
+        <property name="text">
+         <string>Käyttäjätunnus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="userNameLineEdit">
+        <property name="placeholderText">
+         <string>Käyttäjätunnus, oletuspääkäyttäjä postgres</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="passwordLabel">
+        <property name="text">
+         <string>Salasana</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="passwordLineEdit">
+        <property name="placeholderText">
+         <string>Käyttäjän salasana</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="dbSettingsLabel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tietokantayhteydenasetukset</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="viewNameLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>331</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Tietokannan näkymän nimi, jonka tiedot viedään</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="viewNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Näkymän nimi</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exportPushButton">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>270</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(85, 170, 127);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Vie tiedostoon</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="previewTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>1041</width>
+      <height>221</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="getDataPushButton">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>270</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(255, 170, 0);</string>
+    </property>
+    <property name="text">
+     <string>Hae</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="previewLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>310</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Esikatselu</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1062</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuOhje">
+    <property name="title">
+     <string>Ohje</string>
+    </property>
+   </widget>
+   <addaction name="menuOhje"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
