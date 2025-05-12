@@ -5,7 +5,7 @@ Työkalusta halutaan samalla mahdollisimman yleiskäyttöinen.
 
 ## Keskeiset vaatimukset
 - [ ] sovelluksella on graafinen käyttöliittymä
-- [ ] yhteysmerkkijono tietokantaan muodostetaan tapauskohtaisesti graafisesta käyttöliittymästä
+- [ ] yhteysmerkkijono tietokantaan muodostetaan tapauskohtaisesti graafisesta käyttöliittymästä, huom. salasana syötetään
 - [ ] Käyttäjä syöttää näkymän nimen tekstikenttään
 - [ ] Ohjelma tarkistaa, että näkymä on olemassa
 - [ ] Käyttäjä valitsee tiedoston nimen ja sijainnin, johon CSV-tiedot tallennetaan
