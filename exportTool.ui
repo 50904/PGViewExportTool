@@ -196,7 +196,7 @@ color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 170, 0);</string>
     </property>
     <property name="text">
-     <string>Hae</string>
+     <string>Hae tiedot</string>
     </property>
    </widget>
    <widget class="QLabel" name="previewLabel">
@@ -267,7 +267,7 @@ background-color: rgb(255, 170, 0);</string>
       </rect>
      </property>
      <property name="text">
-      <string>pilkku()</string>
+      <string>pilkku(,)</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioButton_2">
