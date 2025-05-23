@@ -63,6 +63,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.ui.testConnectionPushButton.clicked.connect(self.connectDb)
         
+        
         self.ui.objectTypeComboBox.currentIndexChanged.connect(self.getObjectNames)
 
 
@@ -71,7 +72,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui.objectNameComboBox.currentIndexChanged.connect(self.updatePreview)
         # self.ui.getDataPushButton.clicked.connect(self.updatePreview)
 
-        # TODO: Tallennuspainikkeen painaminen käynnistää tallennusdialogin ISSUE 9
+       
         self.ui.exportPushButton.clicked.connect(self.saveToCSVFile)
 
 
@@ -124,11 +125,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.openWarning()
         
 
-    # TODO: Tee slotti, joka hakee information_schema-nimiavaruudesta listan
-    # tietokantaobjekteista, jotka eivät ole information_schemassa tai pg_catalogissa
-    #  a) tee  kysely ensin SQL-kielellä PGAdminissa ja kokeile
-    #  b) käytä filterColumnsFromTable metodia tietojen hakemiseen ja tallenna ne
-    #     pääohjelmaan muuttujaan self.tablesAndViews
+    # Haetaan järjestelmätaulusta tietokantaobjektien (taulujen ja näkymien) nimet
     def getObjectNames(self):
 
         # Muodostetaan asetussanakirja
@@ -235,16 +232,31 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         self.ui.previewTableWidget.setHorizontalHeaderLabels(headerRow)
     
     def createCSVdata(self, separator=';', textIdentifier='"'):
+
+        # Luodaan CSV-tiedoston otsikot
         headerRow = ''
         for item in self.columnNamesList:
             headerRow = headerRow + item + separator
-        headerRow = headerRow + '\\n'
-        self.columnNamesList
-        dataRows = self.resultSet
+
+        # Poistetaan ostsikkorivin viimeinen erotinmerkki
+        headerRow = headerRow [:-1] # Poistetaan viimeisen sarakkeen jälkeen tuleva erotinmerkki
+        headerRow = headerRow + '\\n' # Lisätään rivinvaihto
+
+        dataRows = ''
+        dataRow = ''
+        for row in self.resultSet:
+            print('Rivi', row)
+            for columnValue in row:
+                print('Sarake', columnValue)
+                columnValue = str(columnValue)
+                dataRow = dataRow + columnValue + separator 
+            dataRows = dataRows[:-1]
+            dataRows = dataRows + dataRows + '\\n'
+
        
 
         print('Otsikot:', headerRow)
-        # print('Data', dataRows) 
+        print('Data', dataRows) 
 
     # Tallennus CSV-tiedostoksi
     def saveToCSVFile(self):
