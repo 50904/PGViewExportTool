@@ -145,8 +145,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="objectNameLabel">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>250</y>
+      <x>530</x>
+      <y>270</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -192,7 +192,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>310</y>
+      <y>320</y>
       <width>151</width>
       <height>16</height>
      </rect>
@@ -204,8 +204,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QComboBox" name="objectTypeComboBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>280</y>
+      <x>300</x>
+      <y>290</y>
       <width>221</width>
       <height>24</height>
      </rect>
@@ -214,8 +214,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QComboBox" name="objectNameComboBox">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>280</y>
+      <x>530</x>
+      <y>290</y>
       <width>331</width>
       <height>24</height>
      </rect>
@@ -224,8 +224,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QLabel" name="objectTypeLabel">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>250</y>
+      <x>300</x>
+      <y>270</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -389,6 +389,29 @@ color: rgb(255, 255, 255);</string>
       <bool>true</bool>
      </property>
     </widget>
+   </widget>
+   <widget class="QComboBox" name="databaseComboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>271</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="chooseDbLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tietokanta</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
