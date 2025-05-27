@@ -34,8 +34,8 @@
       <rect>
        <x>20</x>
        <y>170</y>
-       <width>91</width>
-       <height>24</height>
+       <width>81</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -43,7 +43,7 @@
 color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Testaa yhteys</string>
+      <string>Yhdistä</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -158,7 +158,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="exportPushButton">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>610</x>
       <y>200</y>
       <width>161</width>
       <height>51</height>
@@ -183,7 +183,7 @@ color: rgb(255, 255, 255);</string>
      <rect>
       <x>10</x>
       <y>340</y>
-      <width>851</width>
+      <width>761</width>
       <height>221</height>
      </rect>
     </property>
@@ -210,15 +210,21 @@ color: rgb(255, 255, 255);</string>
       <height>24</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
    </widget>
    <widget class="QComboBox" name="objectNameComboBox">
     <property name="geometry">
      <rect>
       <x>530</x>
       <y>290</y>
-      <width>331</width>
+      <width>241</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
    </widget>
    <widget class="QLabel" name="objectTypeLabel">
@@ -293,7 +299,7 @@ color: rgb(255, 255, 255);</string>
       <rect>
        <x>10</x>
        <y>120</y>
-       <width>92</width>
+       <width>51</width>
        <height>20</height>
       </rect>
      </property>
@@ -304,7 +310,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="separatorLineEdit">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>80</x>
        <y>120</y>
        <width>31</width>
        <height>22</height>
@@ -355,7 +361,7 @@ color: rgb(255, 255, 255);</string>
       <rect>
        <x>10</x>
        <y>120</y>
-       <width>92</width>
+       <width>51</width>
        <height>20</height>
       </rect>
      </property>
@@ -366,7 +372,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLineEdit" name="qualifierLineEdit">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>70</x>
        <y>120</y>
        <width>31</width>
        <height>22</height>
@@ -398,6 +404,9 @@ color: rgb(255, 255, 255);</string>
       <width>271</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
    </widget>
    <widget class="QLabel" name="chooseDbLabel">

@@ -311,8 +311,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             try:
                 dbConnection = dbOperations.DbConnection(settingsDictionary)
                 self.resultSet = dbConnection.readAllColumnsFromTable(currentObjectSelection)
+                print('ja tulosjoukko on', self.resultSet)
                 
+                # Tarkistetaan onko taulussa tai näkymässä dataa
+              
+
             except Exception as e:
+                if self.resultSet == []:
+                    self.ui.statusbar.showMessage('Taulussa tai näkymässä ei ole dataa') 
+
+            else:
                 self.errorWindowTitle = 'Objektien nimien haku epäonnistui'
                 self.errorText = 'Objektien nimien hakemisessa tapahtui virhe'
                 self.errorDetails = str(e)
@@ -324,20 +332,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             # Määritellään taulukkoelementin otsikot
             try:
-                # Tulosjoukon rivimäärä
-                numberOfRows = len(self.resultSet)
-                self.ui.previewTableWidget.setRowCount(numberOfRows)
+                if self.resultSet != []:
+                    # Tulosjoukon rivimäärä
+                    numberOfRows = len(self.resultSet)
+                    self.ui.previewTableWidget.setRowCount(numberOfRows)
 
-                # Tulosjoukon sarakemäärä
-                columnCount = len(self.resultSet[0])
-                self.ui.previewTableWidget.setColumnCount(columnCount)
-                dbConnection = dbOperations.DbConnection(settingsDictionary)
+                    # Tulosjoukon sarakemäärä
+                    columnCount = len(self.resultSet[0])
+                    self.ui.previewTableWidget.setColumnCount(columnCount)
+                    dbConnection = dbOperations.DbConnection(settingsDictionary)
 
-                # Selvitetään sarakeotsikot ja päivitetään muuttujat
-                headerRow = dbConnection.getColumnNames(currentObjectSelection)
-                self.columnNamesList = headerRow
-                self.ui.previewTableWidget.setHorizontalHeaderLabels(headerRow)
-            
+                    # Selvitetään sarakeotsikot ja päivitetään muuttujat
+                    headerRow = dbConnection.getColumnNames(currentObjectSelection)
+                    self.columnNamesList = headerRow
+                    self.ui.previewTableWidget.setHorizontalHeaderLabels(headerRow)
+
+                    for row in range(numberOfRows): # Luetaan listaa riveittäin
+                        for column in range(len(self.resultSet[row])): # Luetaan monikkoa sarakkeittain
+
+                            # Muutetaan merkkijonoksi ja QTableWidgetItem-olioksi
+                            data = QtWidgets.QTableWidgetItem(str(self.resultSet[row][column])) 
+                            self.ui.previewTableWidget.setItem(row, column, data)
+                            self.ui.previewTableWidget.setHorizontalHeaderLabels(headerRow)
+                else:
+                    self.ui.statusbar.showMessage('Taulussa tai näkymässä ei ole dataa')
             except Exception as e:
                 self.errorWindowTitle = 'Taulukon päivittäminen epäonnistui'
                 self.errorText = 'Taulukon päivityksessä tapahtui virhe'
@@ -345,13 +363,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.openWarning()
             
             # Asetetaan taulukon solujen arvot
-            for row in range(numberOfRows): # Luetaan listaa riveittäin
-                for column in range(len(self.resultSet[row])): # Luetaan monikkoa sarakkeittain
-                    
-                    # Muutetaan merkkijonoksi ja QTableWidgetItem-olioksi
-                    data = QtWidgets.QTableWidgetItem(str(self.resultSet[row][column])) 
-                    self.ui.previewTableWidget.setItem(row, column, data)
-                    self.ui.previewTableWidget.setHorizontalHeaderLabels(headerRow)
     
     # Aktivoidaan muu erotin -valinta, jos erotin-kenttää on muokattu
     def forceOtherSeparator(self):
