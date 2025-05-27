@@ -222,7 +222,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             filterText  = f"table_type = '{tableType}' AND table_schema NOT IN ('information_schema', 'pg_catalog')"
 
             objectNames = dbConnection.filterColumsFromTable(table,columns,filterText)
-            self.ui.statusbar.showMessage('Haettiin tietokantaobjektien nimet')
+            self.ui.statusbar.showMessage('Päivitettiin objektien nimilista')
             
 
             # Tehdään monikkolistasta merkkijonolista
@@ -265,7 +265,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 filterText = f"table_schema NOT IN ('information_schema', 'pg_catalog')"
 
                 objectTypes = dbConnection.filterDistinctColumsFromTable(table,columns,filterText)
-                self.ui.statusbar.showMessage('Tietokantaobjektien tyypit haettiin')
 
                 # Tehdään monikkolistasta merkkijonolista
                 self.ui.objectTypeComboBox.clear() # Tyhjentää vanhat vaihtoehdot
@@ -276,7 +275,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
                 # Lisätään lista yhdistelmäruutuun
                 self.ui.objectTypeComboBox.addItems(cleanedObjectTypeList)
-                print(self.databaseName)
+                self.ui.statusbar.showMessage('Päivitettiin objektityyppilista')
             
             except Exception as e:
                 self.errorWindowTitle = 'Yhteys tietokantaobjektien haku ei onnistunut'
@@ -403,7 +402,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         statusbarMessage = f'Tekstin tunnisteeksi valittu {self.chosenQualifier}'
         self.ui.statusbar.showMessage(statusbarMessage, 5000)
 
-    def createCSVdata(self, separator=';', textQualifier='"'):
+    # Yleispätevä metodi CSV-datan muodostamiseen
+    def createCSVdata(self, separator=';', textQualifier=''):
         data = ''
         # Luodaan CSV-tiedoston otsikot
         headerRow = ''
